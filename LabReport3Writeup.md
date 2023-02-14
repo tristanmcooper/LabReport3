@@ -186,7 +186,7 @@ This command can be particularly helpful when paired with `cat`
 ### `-r` stands for "recursive"
 - __Description:__ Unlike  normal `grep`, for which you have to manually expand paths (with wildcard) in order to search through subdirectories, `grep -r` allows us to search through all subdirectories within one, bigger directory.
 
-1. `grep -o` __first__ example: Searching for the same phrase as in #3 example.
+1. `grep -r` __first__ example: Searching for the same phrase as in #3 example.
     - Command:
     ```bash
     $ grep -r "pilgrims were" ./written_2
@@ -200,7 +200,7 @@ This command can be particularly helpful when paired with `cat`
     - **Why is `grep -r` useful in this case?**
         - Notice how the command using `-r` is much shorter than when it wasn't used in above examples where we had to expand the paths. With `grep -r`, we have the convenience of simply putting one path to the parent directory, and bash recursively does the rest for us!
 
-2. `grep -0` __second__ example: Search for files that contain *multiple* patterns.
+2. `grep -r` __second__ example: Search for files that contain *multiple* patterns.
     - Command: Searching for "hi" and "bye"
     ```bash
     $ grep -r -l "hi" | xargs grep -l "bye" | cat
