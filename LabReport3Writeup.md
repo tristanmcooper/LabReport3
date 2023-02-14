@@ -14,8 +14,8 @@ __P__ rint
 
 As we've seen in lecture, `grep` can be used to search through lines to find a specific "pattern." It then returns the lines that contain the matching data.
 
-For lab and even in the skill demonstration, we've become familiar `grep -l`. 
-*Now let's take a look a more interesting command-line options!*
+For lab and even in the skill demonstration, we've become familiar `grep -l`. \
+*Now let's take a look at even more interesting command-line options!*
 
 ## 1. `grep -i`
 ### `-i` stands for "ignore"
@@ -28,7 +28,7 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
         ```bash
         $ grep "dog" ./*/*/* | wc -l
         ```
-        - OUTPUT:
+        - *Output*:
         ```
         66
         ```
@@ -36,7 +36,7 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
         ```bash
         $ grep -i "dog" ./*/*/* | wc -l
         ```
-        - OUTPUT:
+        - *Output*:
         ```
         77
         ```
@@ -50,16 +50,16 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
             $ grep "Dog" ./*/*/* | wc -l
             ```
         And unless there are unconventional capitalizations, we would expect this command to produce the total number of lines (77) minus the lowercase number of lines (66).
-        - OUTPUT:
+        - *Output*:
         ```
         11
         ```
         `77-66` does, in fact, equal `11`
     - **Why is `grep -i` useful in this case?**
-        - Because we, for the sake of our travels, we don't care whether the word appears at the beginning of a sentence (capitalized) or other, only that it appears. Without, `grep -i` we would be missing out on eleven whole lines that may contain important information about traveling with dogs.
+        - Because, for the sake of our travels, we don't care whether the word appears at the beginning of a sentence (capitalized) or other, only that it appears. Without, `grep -i` we would be missing out on eleven whole lines that may contain important information about traveling with dogs.
 
 
-2. `grep -i` __second__ example: Lets do a similar example. Say we wan't a rough estimate of the ratio of times the word "car" is at the beginning of a sentence in non-fiction books.
+2. `grep -i` __second__ example: Say we wan't a rough estimate of the ratio of times the word "car" is at the beginning of a sentence in non-fiction books.
 *These commands are being run from the `non-fiction` directory*
 
     - **Beginning of sentence (roughly):**
@@ -67,7 +67,7 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
     $ grep "Car"  ./*/*/* | wc -l
     ```
     
-    - OUTPUT:
+    - *Output*:
     ```
     76
     ```
@@ -76,7 +76,7 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
     ```bash
     $ grep -i "Car"  ./*/*/* | wc -l
     ```
-    - OUTPUT:
+    - *Output*:
     ```bash
     439
     ```
@@ -95,16 +95,16 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
 - __Description:__ `grep -v` inverts pattern-matching. This means that it searches for all lines the __*don't*__ contain the string.
 
 1. `grep -v` __first__ example: Say our English major friend is doing a study on the use of the letter "e" across different authors and time periods. They want our help finding all the lines in Rybczynski's writings where this most common letter DOESN'T exist.
-    - Code Block:
+    - Command:
     ```bash
     $ grep -v "e" * | wc -l
     ```
-    - OUTPUT:
+    - *Output*:
     ```
     62
     ```
     - **What's happening here?**
-        - `grep -v` found 62 lines where the letter "e" doesn't appear.
+        - `grep -v` found `62` lines where the letter "e" doesn't appear.
 
         > If we lose the `-l` after `wc`: 
         `grep -v "e" * | wc` produces `66`,
@@ -120,7 +120,7 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
     ```bash
     $ grep -i "dog" ./*/*/* | grep -i  -v "cat" | wc -l
     ```
-    - OUTPUT:
+    - *Output*:
     ```
     68
     ```
@@ -135,14 +135,14 @@ For lab and even in the skill demonstration, we've become familiar `grep -l`.
 ## 3. `grep -h`
 ### `-h` indicates "matched lines"
 - __Description:__ `grep -h` allows us to display the matching lines without including the filenames/paths.
-This command can be particularly helpful when paired with `cat`
+This command can be particularly helpful when paired with `cat`.
 
 1. `grep -h` __first__ example: I went ahead and found a phrase that appears in only one line in the entire `travel_guides` directory.
     - **Without** `-h`:
     ```bash
     $ grep "pilgrims were" ./*/*/* | cat
     ```
-    - OUTPUT:
+    - *Output*:
     ```
     ./travel_guides/berlitz1/HistoryJerusalem.txt:        barbed wire, no Israeli or Jewish pilgrims were allowed to visit the
     ```
@@ -151,12 +151,12 @@ This command can be particularly helpful when paired with `cat`
     ```bash
     $ grep -h "pilgrims were" ./*/*/* | cat
     ```
-    - OUTPUT:
+    - *Output*:
     ```bash
     barbed wire, no Israeli or Jewish pilgrims were allowed to visit the
     ```
     - **What's happening here?**
-        - As you can see, the second OUTPUT doesn't contain a file path.
+        - As you can see, the second output doesn't contain a file path.
     - **Why is `grep -h` useful in this case?**
         - This could be particularly useful if you were showing a friend who doesn't understand file paths, and you don't want them to get distracted or confused by including the path; you'd rather they just focus on the sentence you printed for them. In the next example, we'll see a far more useful example.
 
@@ -166,7 +166,7 @@ This command can be particularly helpful when paired with `cat`
     $ find . | grep -h "computers" ./*/*/* > lines_using_h.txt
     cat lines_using_h.txt 
     ```
-    - OUTPUT:
+    - *Output*:
     ```
     cameras and computers. Those who wish to can have a quite active
     bargain prices on computers, tape-recorders, video cameras, and other
@@ -174,7 +174,7 @@ This command can be particularly helpful when paired with `cat`
     The skyline of the capital rises higher and higher each year, glass and steel replace brick and mud in the old courtyards, cars replace carts in the streets, and computers replace abacuses in the schools.
     ```
     - **What's happening here?**
-        - We are using OUTPUT redirection to store the result of using `grep -h` to search for the word "computer" then printing it out with `cat`.
+        - We are using output redirection to store the result of using `grep -h` to search for the word "computer" then printing it out with `cat`.
     - **Why is `grep -h` useful in this case?**
         - Because we get to view the lines without the paths/file names.
 
@@ -191,7 +191,7 @@ This command can be particularly helpful when paired with `cat`
     ```bash
     $ grep -r "pilgrims were" ./written_2
     ```
-    - OUTPUT:
+    - *Output*:
     ```bash
     ./written_2/travel_guides/berlitz1/HistoryJerusalem.txt:        barbed wire, no Israeli or Jewish pilgrims were allowed to visit the
     ```
@@ -205,7 +205,7 @@ This command can be particularly helpful when paired with `cat`
     ```bash
     $ grep -r -l "hi" | xargs grep -l "bye" | cat
     ```
-    - OUTPUT:
+    - *Output*:
     ```
     written_2/non-fiction/OUP/Castro/chN.txt
     ```
