@@ -6,11 +6,11 @@ For this report, I've chosen the `grep` command to research.
 
 # The `Grep` Command
 
->For brief context, `grep` stands for: 
-__G__ lobal
-__R__ egular 
-__E__ xpression
-__P__ rint
+>For brief context, `grep` stands for: \
+__G__ lobal \
+__R__ egular \
+__E__ xpression \
+__P__ rint 
 
 As we've seen in lecture, `grep` can be used to search through lines to find a specific "pattern." It then returns the lines that contain the matching data.
 
